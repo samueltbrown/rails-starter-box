@@ -6,6 +6,14 @@ This project automates the setup of a development environment for general Ruby o
 
 Inspired by the book ["Deploying Rails"](http://pragprog.com/book/cbdepra/deploying-rails) and fxn's [rails-dev-box](https://github.com/rails/rails-dev-box)
 
+**This project forked from ["https://github.com/amaia/rails-starter-box"](https://github.com/amaia/rails-starter-box) and updated for CentOS 6.4 x64**
+
+## Notable Changes:
+
+* Removed Postgres
+* Added Puppet EPEL module for EPEL repositories and GPG keys
+* Added sqlite Puppet module
+
 ## Requirements
 
 * [VirtualBox](https://www.virtualbox.org)
@@ -16,17 +24,16 @@ Inspired by the book ["Deploying Rails"](http://pragprog.com/book/cbdepra/deploy
 
 Building the virtual machine is this easy:
 
-    host $ git clone https://github.com/amaia/rails-starter-box.git
+    host $ git clone https://github.com/samueltbrown/rails-starter-box.git
+	host $ cd rails-starter-box
     host $ git submodule init
-    host $ git submodule update
-    host $ cd rails-starter-box
+    host $ git submodule update    
     host $ vagrant up
 
 If the base box is not present that command fetches it first. 
 
     host $ vagrant ssh
-    Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
-    ...
+    Welcome to your Vagrant-built virtual machine.
     vagrant@rails-starter-box:~$
 
 Port 3000 in the host computer is forwarded to port 3000 in the virtual machine. Thus, applications running in the virtual machine can be accessed via localhost:3000 in the host computer.
@@ -35,7 +42,7 @@ Port 3000 in the host computer is forwarded to port 3000 in the virtual machine.
 
 * Git
 
-* SQLite3, MySQL, and Postgres
+* SQLite3, MySQL
 
 * RVM (with ruby 1.9.3 and 1.8.7 installed)
 
